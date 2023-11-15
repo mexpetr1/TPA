@@ -10,18 +10,16 @@ var app = express();
 
 // Connexion à la base de données
 databaseDB();
-
+app.use(express.static('public'));
 app.set('view engine', 'twig');
 app.set('views', './views');
-app = express();
+
 app.get('/', (req, res) => {
-  res.render('home');
+  res.render('pages/home');
 });
 
 // Route de base pour tester
-app.get('/', (req, res) => {
-  res.send('Yeah ! Ça marche ! Je suis dans le navigateur ! 🎉🚀');
-});
+
 
 app.listen(3030, () => {
 	console.log(`🚀🚀 Lancement avec succès du server`);
